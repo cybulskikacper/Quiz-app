@@ -16,9 +16,14 @@ const handleQuiz = e => {
 	console.log(allChecked)
 
 	if (!allChecked) {
-        modal.classList.add('modal-active')
-    
-    }
+		modal.classList.add('modal-active')
+		modalInfo.textContent = 'Wybierz wszystkie odpowiedzi!'
+	}
+}
+
+const closeModal = () => {
+	modal.classList.remove('modal-active')
 }
 
 form.addEventListener('submit', handleQuiz)
+modalBtn.addEventListener('click', closeModal)
