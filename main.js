@@ -19,6 +19,19 @@ const handleQuiz = e => {
 		modal.classList.add('modal-active')
 		modalInfo.textContent = 'Wybierz wszystkie odpowiedzi!'
 	}
+
+	checkedAnswers.forEach(answer => {
+		const checkIfCorrect = answer.value === 'true'
+		const answerBox = answer.closest('.answer-box')
+
+		if (checkIfCorrect) {
+			answerBox.classList.add('correct')
+			answerBox.classList.remove('incorrect')
+		} else {
+			answerBox.classList.add('incorrect')
+			answerBox.classList.remove('correct')
+		}
+	})
 }
 
 const closeModal = () => {
